@@ -71,6 +71,7 @@
                             <a href="impact-stories.html" class="dropdown-item">Impact Stories</a>
                             <a href="volunteer.html" class="dropdown-item">Volunteer Opportunities</a>
                             <a href="blog.html" class="dropdown-item">Blog</a>
+                            <a href="donate.html" class="dropdown-item">Donate</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -101,8 +102,8 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Save More Lifes With Our Helping Hand</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">Dedicated to uplifting vulnerable communities and inspiring change through acts of kindness and unwavering support</p>
-                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="">
-                                        Volunteer
+                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="donate.html">
+                                        Donate
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
@@ -120,7 +121,7 @@
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Change The World With Humanity</h1>
                                     <p class="fs-5 text-white-50 mb-5 animated slideInDown">Committed to empowering vulnerable communities and fostering change through acts of compassion and steadfast support.</p>
-                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="">
+                                    <a class="btn btn-primary py-2 px-3 animated slideInDown" href="volunteer.html">
                                         Volunteer
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
@@ -298,11 +299,11 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Donate Now</div>
-                    <h1 class="display-6 text-white mb-5">Thanks For The Results Achieved With You</h1>
-                    <p class="text-white-50 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <h1 class="display-6 mb-5 text-white">Thanks For The Results Achieved With You</h1>
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="h-100 bg-white p-5">
+                    <div class="h-100 bg-secondary p-5">
                         <form>
                             <div class="row g-3">
                                 <div class="col-12">
@@ -321,16 +322,16 @@
                                     <div class="btn-group d-flex justify-content-around">
                                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
                                         <label class="btn btn-light py-3" for="btnradio1">₦100</label>
-
+    
                                         <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
                                         <label class="btn btn-light py-3" for="btnradio2">₦1000</label>
-
+    
                                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
                                         <label class="btn btn-light py-3" for="btnradio3">₦10000</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary px-5" style="height: 60px;">
+                                    <button class="btn btn-primary px-5" style="height: 60px;" type="submit">
                                         Donate Now
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                                             <i class="fa fa-arrow-right"></i>
@@ -596,6 +597,40 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- Paystack Script -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // Retrieve the amount to be donated
+            let amount = 100; // Default value (₦100)
+            if (document.getElementById('btnradio2').checked) {
+                amount = 1000; // ₦1000
+            } else if (document.getElementById('btnradio3').checked) {
+                amount = 10000; // ₦10000
+            }
+    
+            // Create the payment request
+            let handler = PaystackPop.setup({
+                key: 'YOUR_PAYSTACK_PUBLIC_KEY',  // Use your Paystack public key
+                email: document.getElementById('email').value,
+                amount: amount * 100,  // Convert to kobo (Paystack uses kobo)
+                currency: "NGN",
+                ref: 'ref-' + Math.floor(Math.random() * 1000000),  // Generate a unique reference
+                callback: function(response) {
+                    // Handle success
+                    alert('Payment successful! Reference: ' + response.reference);
+                },
+                onClose: function() {
+                    alert('Payment window closed');
+                }
+            });
+    
+            // Open the Paystack payment modal
+            handler.openIframe();
+        });
+    </script>
 </body>
 
 </html>

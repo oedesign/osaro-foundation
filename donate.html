@@ -229,9 +229,50 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <!-- Paystack Script -->
-    <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
-    
+    <script type="text/javascript" src="https://checkout.flutterwave.com/v3.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Retrieve the amount to be donated
+    let amount = 100; // Default value (₦100)
+    if (document.getElementById('btnradio2').checked) {
+        amount = 1000; // ₦1000
+    } else if (document.getElementById('btnradio3').checked) {
+        amount = 10000; // ₦10000
+    }
+
+    // Ensure email input is not empty
+    const email = document.getElementById('email').value;
+    if (!email) {
+        alert('Please enter your email');
+        return;
+    }
+
+    // Initialize Flutterwave payment
+    FlutterwaveCheckout({
+        public_key: 'YOUR_FLUTTERWAVE_PUBLIC_KEY',  // Use your Flutterwave public key
+        tx_ref: 'ref-' + Math.floor(Math.random() * 1000000),  // Generate a unique reference
+        amount: amount,
+        currency: "NGN",
+        payment_options: "card, banktransfer, ussd",
+        customer: {
+            email: email,
+        },
+        callback: function(response) {
+            // Handle success
+            if (response.status === "success") {
+                alert('Payment successful! Transaction ID: ' + response.transaction_id);
+            } else {
+                alert('Payment failed! Please try again.');
+            }
+        },
+        onclose: function() {
+            alert('Payment window closed');
+        }
+    });
+});
+
     </script>
 </body>
 

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Sitemap:  https://osarofoundation.org/ 
 https://osarofoundation.org/sitemap.xml
+https://www.osarofoundation.org/img/Osaro%27s%20Logo.webp

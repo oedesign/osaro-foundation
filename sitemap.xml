@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://osarofoundation.org/</loc>
+        <lastmod>2025-03-25</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://osarofoundation.org/about</loc>
+        <lastmod>2025-03-25</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://osarofoundation.org/contact</loc>
+        <lastmod>2025-03-25</lastmod>
+        <priority>0.8</priority>
+    </url>
+</urlset>
+
+    4. Add the sitemap.xml file to the root of your repository. 
+    5. Commit the changes and push them to your repository. 
+    6. Now, you can access the sitemap.xml file by visiting the following URL: 
+    https://yourdomain.github.io/sitemap.xml 
+    That’s it! You have successfully created a sitemap.xml file for your GitHub Pages website. 
+    If you have any questions or suggestions, feel free to leave a comment below. 
+    Thanks for reading! 
+    If this post helped you out and you'd like to show your support, please consider fueling future posts by buying me a coffee cup! 
+    Arthur is a designer and full stack software engineer. He is the founder of Space X-Chimp and the blog My Cyber Universe. His personal website can be found at arthurgareginyan.com.

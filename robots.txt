@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap:  https://osarofoundation.org/
+Sitemap:  https://osarofoundation.org/ 
+https://osarofoundation.org/sitemap.xml

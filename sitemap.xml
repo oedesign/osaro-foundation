@@ -3,19 +3,23 @@
     <url>
         <loc>https://osarofoundation.org/</loc>
         <lastmod>2025-03-25</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://osarofoundation.org/about</loc>
         <lastmod>2025-03-25</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://osarofoundation.org/contact</loc>
         <lastmod>2025-03-25</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 </urlset>
+
 
     4. Add the sitemap.xml file to the root of your repository. 
     5. Commit the changes and push them to your repository. 
